@@ -275,7 +275,7 @@ api.interceptors.response.use(
     if (isStaticDeploy) {
       const method = error.config?.method?.toLowerCase() || 'get'
       if (method === 'get') {
-        return { data: [], headers: {}, status: 200, statusText: 'OK', config: error.config }
+        return { data: null, headers: {}, status: 200, statusText: 'OK', config: error.config }
       }
       return { data: { success: true, saved: 0 }, headers: {}, status: 200, statusText: 'OK', config: error.config }
     }
