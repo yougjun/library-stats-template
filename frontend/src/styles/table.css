@@ -1,0 +1,427 @@
+/* Black borders for table cells - inner borders gray, outer borders black */
+.black-bordered-table .ant-table-bordered .ant-table-container {
+  border: 1.5px solid #000 !important;
+}
+
+.black-bordered-table .ant-table-bordered .ant-table-container table > thead > tr > th,
+.black-bordered-table .ant-table-bordered .ant-table-container table > tbody > tr > td,
+.black-bordered-table .ant-table-bordered .ant-table-container table > tfoot > tr > th,
+.black-bordered-table .ant-table-bordered .ant-table-container table > tfoot > tr > td {
+  border-color: #d9d9d9 !important;
+  border-width: 0.16px !important;
+  border-style: solid !important;
+}
+
+.black-bordered-table .ant-table-bordered .ant-table-container table > thead > tr > th::before {
+  background-color: #d9d9d9 !important;
+}
+
+/* Force all inner table borders to be gray and thin */
+.black-bordered-table table,
+.black-bordered-table table tr,
+.black-bordered-table table th,
+.black-bordered-table table td {
+  border-color: #d9d9d9 !important;
+  border-width: 0.16px !important;
+}
+
+/* Make outer table container border black and thicker */
+.black-bordered-table .ant-table {
+  border: 1.5px solid #000 !important;
+}
+
+/* Resizable columns */
+.react-resizable {
+  position: relative;
+}
+
+.react-resizable-handle {
+  position: absolute;
+  width: 10px;
+  height: 100%;
+  bottom: 0;
+  right: -5px;
+  cursor: col-resize;
+  z-index: 1;
+}
+
+.react-resizable-handle:hover {
+  background-color: rgba(0, 0, 0, 0.1);
+}
+
+/* Editable cell styles */
+.editable-cell {
+  position: relative;
+}
+
+.editable-cell-value-wrap {
+  padding: 5px 12px;
+  cursor: pointer;
+  min-height: 32px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.editable-cell-value-wrap:hover {
+  background-color: #f5f5f5;
+  border: 1px solid #d9d9d9;
+  border-radius: 2px;
+  padding: 4px 11px;
+}
+
+.editable-row:hover {
+  background-color: #fafafa;
+}
+
+/* Read-only cell - no hover effect when not in access code session */
+.editable-cell-readonly .editable-cell-value-wrap {
+  cursor: default !important;
+}
+
+.editable-cell-readonly .editable-cell-value-wrap:hover {
+  background-color: transparent !important;
+  border: none !important;
+  padding: 5px 12px !important;
+}
+
+/* Compact cell padding and font size for statistics tables */
+.black-bordered-table .ant-table-tbody > tr > td {
+  padding: 1.5px 2px !important;
+  font-size: 15px !important;
+  line-height: 1.95 !important;
+  height: 30px !important;
+}
+
+.black-bordered-table .ant-table-thead > tr > th {
+  padding: 2.25px 2px !important;
+  font-size: 16px !important;
+  line-height: 1.56 !important;
+  height: 30px !important;
+}
+
+/* Adjust editable cell padding to match compact design */
+.black-bordered-table .editable-cell-value-wrap {
+  padding: 1.5px 2px !important;
+  min-height: 30px !important;
+}
+
+.black-bordered-table .editable-cell-value-wrap:hover {
+  padding: 1px 1.5px !important;
+}
+
+/* Responsive table container */
+.stats-table-container {
+  width: 100%;
+  overflow-x: auto;
+  overflow-y: visible;
+  margin-bottom: 24px;
+}
+
+/* Ensure table doesn't exceed viewport */
+.black-bordered-table .ant-table-wrapper {
+  max-width: 100%;
+}
+
+/* Horizontal scroll for tables on small screens */
+.black-bordered-table .ant-table {
+  min-width: 800px;
+}
+
+/* Table scroll behavior */
+.black-bordered-table .ant-table-body {
+  overflow-x: auto !important;
+  overflow-y: visible !important;
+}
+
+/* Sticky header for better UX on scroll */
+.black-bordered-table .ant-table-thead > tr > th {
+  position: sticky;
+  top: 0;
+  z-index: 10;
+  background-color: #E2EFDA !important;
+}
+
+/* Responsive adjustments - DISABLED to maintain consistent sizing */
+/* All screen sizes will use the same font size and padding */
+
+/* Smooth scrolling */
+.stats-table-container::-webkit-scrollbar {
+  height: 8px;
+}
+
+.stats-table-container::-webkit-scrollbar-track {
+  background: #f1f1f1;
+}
+
+.stats-table-container::-webkit-scrollbar-thumb {
+  background: #888;
+  border-radius: 4px;
+}
+
+.stats-table-container::-webkit-scrollbar-thumb:hover {
+  background: #555;
+}
+
+/* Responsive container padding - DISABLED to maintain consistent sizing */
+
+/* Table wrapper scroll on smaller screens */
+.black-bordered-table .ant-table-wrapper {
+  overflow-x: auto;
+  -webkit-overflow-scrolling: touch;
+}
+
+/* Prevent table from breaking layout */
+.black-bordered-table {
+  max-width: 100%;
+  overflow-x: auto;
+}
+
+/* Better scrollbar - same for all screen sizes */
+.black-bordered-table .ant-table-wrapper::-webkit-scrollbar {
+  height: 8px;
+}
+
+/* Keep text wrapping consistent and center align headers */
+.black-bordered-table .ant-table-thead > tr > th {
+  white-space: pre-wrap;
+  word-break: keep-all;
+  text-align: center !important;
+}
+
+/* Center align InputNumber values */
+.ant-input-number-input {
+  text-align: center !important;
+}
+
+.ant-input-number {
+  width: 100%;
+}
+
+/* Prediction table styles */
+.prediction-table .ant-table-bordered .ant-table-container {
+  border: 2px solid #1890ff !important;
+}
+
+.prediction-table .ant-table-thead > tr > th {
+  background-color: #E8F4FD !important;
+  padding: 8px 4px !important;
+  font-size: 13px !important;
+  text-align: center !important;
+  white-space: pre-wrap;
+}
+
+.prediction-table .ant-table-tbody > tr > td {
+  padding: 8px 4px !important;
+  font-size: 12px !important;
+  text-align: center !important;
+  vertical-align: middle !important;
+}
+
+.prediction-table .ant-table {
+  border: 2px solid #1890ff !important;
+}
+
+/* Prediction cell confidence interval bar */
+.prediction-interval-bar {
+  width: 100%;
+  height: 6px;
+  background: linear-gradient(90deg, #bae7ff 0%, #1890ff 50%, #bae7ff 100%);
+  border-radius: 3px;
+  position: relative;
+}
+
+.prediction-interval-bar::after {
+  content: '';
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: 8px;
+  height: 8px;
+  background-color: #1890ff;
+  border: 2px solid #fff;
+  border-radius: 50%;
+}
+
+/* Comparison cell colors */
+.comparison-accurate {
+  background-color: rgba(82, 196, 26, 0.1) !important;
+}
+
+.comparison-close {
+  background-color: rgba(250, 173, 20, 0.1) !important;
+}
+
+.comparison-error {
+  background-color: rgba(255, 77, 79, 0.1) !important;
+}
+
+/* ========== Print Styles for Stats Pages ========== */
+@media print {
+  /* Page setup - minimal margins */
+  @page {
+    size: A4 landscape;
+    margin: 5mm;
+  }
+
+  /* Hide non-printable elements */
+  .ant-layout-header,
+  .ant-layout-sider,
+  .ant-menu,
+  .ant-breadcrumb,
+  .floating-menu-container,
+  .ant-btn,
+  .ant-select,
+  .ant-picker,
+  .ant-radio-group,
+  .ant-tabs-nav,
+  button,
+  .ant-card-actions,
+  .ant-modal-mask,
+  .ant-modal-wrap:not(.print-modal),
+  .chart-container,
+  canvas {
+    display: none !important;
+  }
+
+  /* Reset body and html for print */
+  html, body {
+    height: auto !important;
+    overflow: visible !important;
+    background: white !important;
+    -webkit-print-color-adjust: exact !important;
+    print-color-adjust: exact !important;
+    margin: 0 !important;
+    padding: 0 !important;
+  }
+
+  /* Main content area - full width */
+  .ant-layout-content,
+  .ant-layout,
+  main {
+    margin: 0 !important;
+    padding: 0 !important;
+    width: 100% !important;
+    max-width: none !important;
+    overflow: visible !important;
+  }
+
+  /* Printable content card - very compact */
+  #printable-content {
+    border: 1.5px solid #000 !important;
+    box-shadow: none !important;
+    margin: 0 !important;
+    padding: 3px !important;
+  }
+
+  #printable-content .ant-card-body {
+    padding: 4px !important;
+  }
+
+  /* Title - smaller */
+  #printable-content h1 {
+    font-size: 14px !important;
+    margin: 0 0 4px 0 !important;
+  }
+
+  /* Section spacing - minimal */
+  #printable-content > .ant-card-body > div {
+    margin-bottom: 6px !important;
+  }
+
+  /* Section headers */
+  #printable-content span[style*="fontWeight"] {
+    font-size: 11px !important;
+  }
+
+  /* Unit text */
+  #printable-content span[style*="color: rgb(102"] {
+    font-size: 9px !important;
+  }
+
+  /* Date info row - compact */
+  #printable-content > .ant-card-body > div:first-child {
+    font-size: 9px !important;
+    margin-bottom: 4px !important;
+  }
+
+  /* Table print optimization */
+  .black-bordered-table {
+    overflow: visible !important;
+    max-width: none !important;
+  }
+
+  .black-bordered-table .ant-table-wrapper {
+    overflow: visible !important;
+  }
+
+  .black-bordered-table .ant-table {
+    min-width: unset !important;
+    width: 100% !important;
+  }
+
+  .black-bordered-table .ant-table-container {
+    overflow: visible !important;
+  }
+
+  .black-bordered-table .ant-table-body {
+    overflow: visible !important;
+  }
+
+  /* Prevent row breaks */
+  .black-bordered-table .ant-table-tbody > tr {
+    page-break-inside: avoid !important;
+    break-inside: avoid !important;
+  }
+
+  /* Table display */
+  .black-bordered-table .ant-table-thead {
+    display: table-header-group !important;
+  }
+
+  .black-bordered-table .ant-table-tbody {
+    display: table-row-group !important;
+  }
+
+  .black-bordered-table table {
+    display: table !important;
+    width: 100% !important;
+  }
+
+  /* Header styling for print */
+  .black-bordered-table .ant-table-thead > tr > th {
+    position: static !important;
+    background-color: #E2EFDA !important;
+    -webkit-print-color-adjust: exact !important;
+    print-color-adjust: exact !important;
+  }
+
+  /* Very compact sizing for single page */
+  .black-bordered-table .ant-table-tbody > tr > td,
+  .black-bordered-table .ant-table-thead > tr > th {
+    padding: 1px 2px !important;
+    font-size: 9px !important;
+    line-height: 1.2 !important;
+    height: auto !important;
+  }
+
+  /* Ensure borders print */
+  .black-bordered-table .ant-table-bordered .ant-table-container,
+  .black-bordered-table .ant-table {
+    border: 1px solid #000 !important;
+    -webkit-print-color-adjust: exact !important;
+    print-color-adjust: exact !important;
+  }
+
+  /* Remove scroll container constraints */
+  .stats-table-container {
+    overflow: visible !important;
+    max-height: none !important;
+  }
+
+  /* Flex row spacing */
+  #printable-content div[style*="display: flex"] {
+    margin-bottom: 2px !important;
+  }
+}

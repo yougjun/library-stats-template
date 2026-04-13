@@ -1,0 +1,57 @@
+# Python
+__pycache__/
+*.py[cod]
+*$py.class
+*.so
+*.egg-info/
+dist/
+build/
+*.egg
+venv/
+.venv/
+
+# Node
+node_modules/
+dist/
+.vite/
+
+# Environment
+.env
+.env.local
+.env.*.local
+
+# IDE
+.vscode/
+.idea/
+*.swp
+*.swo
+
+# OS
+.DS_Store
+Thumbs.db
+
+# Logs
+*.log
+logs/
+
+# Data
+*.db
+*.sqlite3
+/data/
+backups/
+
+# Binary archives
+*.zip
+*.tar.gz
+KLAS_Automation*
+
+# Backup files
+*.bak
+*.backup
+
+# Testing
+.coverage
+htmlcov/
+.pytest_cache/
+frontend/test-results/
+frontend/dist/stats.html*

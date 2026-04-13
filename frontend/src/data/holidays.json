@@ -1,0 +1,14 @@
+[
+  {"start_date": "2025-01-01", "end_date": "2025-01-01", "condition": ""},
+  {"start_date": "2025-01-28", "end_date": "2025-01-28", "condition": ""},
+  {"start_date": "2025-01-29", "end_date": "2025-01-29", "condition": ""},
+  {"start_date": "2025-01-30", "end_date": "2025-01-30", "condition": ""},
+  {"start_date": "2025-03-01", "end_date": "2025-03-01", "condition": ""},
+  {"start_date": "2025-04-01", "end_date": "2025-05-19", "condition": "library remodeling"},
+  {"start_date": "2025-06-03", "end_date": "2025-06-03", "condition": ""},
+  {"start_date": "2025-06-06", "end_date": "2025-06-06", "condition": ""},
+  {"start_date": "2025-08-15", "end_date": "2025-08-15", "condition": ""},
+  {"start_date": "2025-10-03", "end_date": "2025-10-03", "condition": ""},
+  {"start_date": "2025-10-05", "end_date": "2025-10-09", "condition": ""},
+  {"start_date": "2025-12-25", "end_date": "2025-12-25", "condition": ""}
+]
