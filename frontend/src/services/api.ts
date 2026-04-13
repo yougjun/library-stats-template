@@ -274,10 +274,24 @@ api.interceptors.response.use(
   async (error) => {
     if (isStaticDeploy) {
       const method = error.config?.method?.toLowerCase() || 'get'
-      if (method === 'get') {
-        return { data: null, headers: {}, status: 200, statusText: 'OK', config: error.config }
+      if (method !== 'get') {
+        return { data: { success: true, saved: 0 }, headers: {}, status: 200, statusText: 'OK', config: error.config }
       }
-      return { data: { success: true, saved: 0 }, headers: {}, status: 200, statusText: 'OK', config: error.config }
+      const url = error.config?.url || ''
+      const ok = (d: unknown) => ({ data: d, headers: {}, status: 200, statusText: 'OK', config: error.config })
+
+      if (url.includes('/statistics/floor1/cumulative/'))
+        return ok({ visitor: [], material: [], program: [], ai_library: [] })
+      if (url.includes('/statistics/floor23/cumulative/'))
+        return ok({ visitor: [], material_subject: [], material_type: [], program: [], ai_smart: [], ai_equipment: [], visitor_totals: {} })
+      if (url.includes('/statistics/knowledge/'))
+        return ok({ floor1_visitor: [], floor1_material: [], floor1_program: [], floor23_visitor: [], floor23_program: [], floor23_material: [], cumulative: { floor1_visitor: [], floor1_material: [], floor1_program: [], floor1_ai: [], floor1_regular: [], floor23_visitor: [], floor23_program: [], floor23_material: [], floor23_ai_smart: [], floor23_ai_equipment: [], floor23_visitor_totals: {} } })
+      if (url.includes('/metadata/year/'))
+        return ok([])
+      if (url.includes('/settings'))
+        return ok({ holidays: [], library_year_start_date: '', update_date_format: '', header_aliases: {} })
+
+      return ok(null)
     }
 
     if (error.response?.status === 401 && error.response?.data?.detail === 'Token expired') {
