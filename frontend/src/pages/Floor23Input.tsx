@@ -169,6 +169,8 @@ export default function Floor23Input() {
   }, [yearMonth])
 
   useEffect(() => {
+    if (window.location.hostname.includes('github.io')) return
+
     isMountedRef.current = true
     connectionStateRef.current = 'connecting'
 

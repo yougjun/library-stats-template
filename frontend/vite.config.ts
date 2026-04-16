@@ -4,11 +4,13 @@ import { visualizer } from 'rollup-plugin-visualizer'
 import viteCompression from 'vite-plugin-compression'
 import { VitePWA } from 'vite-plugin-pwa'
 
+const isGitHubPages = !!process.env.GITHUB_ACTIONS
+
 export default defineConfig({
-  base: process.env.GITHUB_ACTIONS ? '/library-stats-template/' : '/',
+  base: isGitHubPages ? '/library-stats-template/' : '/',
   plugins: [
     react(),
-    VitePWA({
+    ...(!isGitHubPages ? [VitePWA({
       registerType: 'autoUpdate',
       includeAssets: ['favicon.ico', 'robots.txt', 'apple-touch-icon.png'],
       manifest: {
@@ -42,7 +44,7 @@ export default defineConfig({
       },
       workbox: {
         globPatterns: ['**/*.{js,css,html,ico,png,svg,woff,woff2}'],
-        maximumFileSizeToCacheInBytes: 15 * 1024 * 1024, // 15 MB
+        maximumFileSizeToCacheInBytes: 15 * 1024 * 1024,
         runtimeCaching: [
           {
             urlPattern: /^https:\/\/fonts\.googleapis\.com\/.*/i,
@@ -51,7 +53,7 @@ export default defineConfig({
               cacheName: 'google-fonts-cache',
               expiration: {
                 maxEntries: 10,
-                maxAgeSeconds: 60 * 60 * 24 * 365 // 1 year
+                maxAgeSeconds: 60 * 60 * 24 * 365
               },
               cacheableResponse: {
                 statuses: [0, 200]
@@ -65,7 +67,7 @@ export default defineConfig({
               cacheName: 'gstatic-fonts-cache',
               expiration: {
                 maxEntries: 10,
-                maxAgeSeconds: 60 * 60 * 24 * 365 // 1 year
+                maxAgeSeconds: 60 * 60 * 24 * 365
               },
               cacheableResponse: {
                 statuses: [0, 200]
@@ -74,7 +76,6 @@ export default defineConfig({
           },
           {
             urlPattern: ({ url }) => {
-              // Exclude template and Excel downloads from cache
               return /\/api\/.*/i.test(url.pathname) &&
                      !url.pathname.includes('/template/download') &&
                      !url.pathname.includes('/excel/download')
@@ -84,7 +85,7 @@ export default defineConfig({
               cacheName: 'api-cache',
               expiration: {
                 maxEntries: 50,
-                maxAgeSeconds: 60 * 5 // 5 minutes
+                maxAgeSeconds: 60 * 5
               },
               cacheableResponse: {
                 statuses: [0, 200]
@@ -96,7 +97,7 @@ export default defineConfig({
       devOptions: {
         enabled: false
       }
-    }),
+    })] : []),
     viteCompression({
       algorithm: 'gzip',
       ext: '.gz',

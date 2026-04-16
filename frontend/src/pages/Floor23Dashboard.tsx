@@ -71,6 +71,8 @@ export default function Floor23Dashboard() {
   }, [])
 
   useEffect(() => {
+    if (window.location.hostname.includes('github.io')) return
+
     const socket = io(window.location.origin, {
       transports: ['websocket', 'polling'],
       auth: {
