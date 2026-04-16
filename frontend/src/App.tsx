@@ -175,7 +175,7 @@ function App() {
                 <Route path="/prediction/floor23/:yearMonth" element={<SiteProtectedRoute><Floor23Prediction /></SiteProtectedRoute>} />
                 <Route path="/prediction/knowledge/:yearMonth" element={<SiteProtectedRoute><KnowledgePrediction /></SiteProtectedRoute>} />
                 <Route path="/prediction/summary/:year" element={<SiteProtectedRoute><PredictionSummary /></SiteProtectedRoute>} />
-                <Route path="/settings" element={<SiteProtectedRoute><Settings /></SiteProtectedRoute>} />
+                <Route path="/settings" element={isStaticDeploy ? <Navigate to="/floor1/dashboard" replace /> : <SiteProtectedRoute><Settings /></SiteProtectedRoute>} />
                 <Route path="/template-editor" element={<SiteProtectedRoute><TemplateEditor /></SiteProtectedRoute>} />
                 <Route path="/template-driven" element={<SiteProtectedRoute><TemplateDrivenInput /></SiteProtectedRoute>} />
                 <Route path="/history" element={<SiteProtectedRoute><History /></SiteProtectedRoute>} />

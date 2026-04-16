@@ -290,6 +290,10 @@ api.interceptors.response.use(
         return ok([])
       if (url.includes('/settings'))
         return ok({ holidays: [], library_year_start_date: '', update_date_format: '', header_aliases: {} })
+      if (url.includes('/admin/list'))
+        return ok([])
+      if (url.includes('/automation'))
+        return ok({ exists: false, size: 0, modified: null, exclusions: [] })
 
       return ok(null)
     }
