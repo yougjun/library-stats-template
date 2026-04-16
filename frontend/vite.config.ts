@@ -10,7 +10,10 @@ export default defineConfig({
   base: isGitHubPages ? '/library-stats-template/' : '/',
   plugins: [
     react(),
-    ...(!isGitHubPages ? [VitePWA({
+    VitePWA(isGitHubPages ? {
+      selfDestroying: true,
+      manifest: false,
+    } : {
       registerType: 'autoUpdate',
       includeAssets: ['favicon.ico', 'robots.txt', 'apple-touch-icon.png'],
       manifest: {
@@ -97,7 +100,7 @@ export default defineConfig({
       devOptions: {
         enabled: false
       }
-    })] : []),
+    }),
     viteCompression({
       algorithm: 'gzip',
       ext: '.gz',
