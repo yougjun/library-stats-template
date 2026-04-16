@@ -42,6 +42,11 @@ export default function PredictionSummary() {
   }, [year, floor])
 
   const fetchModels = async () => {
+    if (window.location.hostname.includes('github.io')) {
+      setModels([])
+      setLoading(false)
+      return
+    }
     try {
       const apiUrl = import.meta.env.VITE_API_URL || window.location.origin
       const response = await axios.get(`${apiUrl}/api/predictions/models`)
@@ -56,6 +61,10 @@ export default function PredictionSummary() {
   }
 
   const calculateAccuracy = async () => {
+    if (window.location.hostname.includes('github.io')) {
+      setAccuracyData([])
+      return
+    }
     const months = []
     for (let i = 1; i <= 12; i++) {
       const month = `${year}-${String(i).padStart(2, '0')}`

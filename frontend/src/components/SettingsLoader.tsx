@@ -24,6 +24,11 @@ export function SettingsLoader({ children }: { children: React.ReactNode }) {
       return
     }
 
+    if (window.location.hostname.includes('github.io')) {
+      settingsLoaded = true
+      return
+    }
+
     setIsLoading(true)
     try {
       const response = hasAccessToken

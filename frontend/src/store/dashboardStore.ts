@@ -66,6 +66,9 @@ export const useDashboardStore = create<DashboardState>((set, get) => ({
   setSelectedModel: (model) => set({ selectedModel: model }),
 
   fetchPredictions: async (floor, token) => {
+    if (window.location.hostname.includes('github.io')) {
+      return
+    }
     set({ loading: true })
     try {
       const apiUrl = import.meta.env.VITE_API_URL || window.location.origin

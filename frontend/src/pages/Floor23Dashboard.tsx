@@ -125,6 +125,27 @@ export default function Floor23Dashboard() {
   }
 
   const loadMonthlyData = async () => {
+    if (window.location.hostname.includes('github.io')) {
+      const months = ['01', '02', '03', '04', '05', '06', '07', '08', '09', '10', '11', '12']
+      setData(months.map(month => ({
+        year_month: `${currentYear}-${month}`,
+        last_updated: null,
+        updated_by: null,
+        visitor_count: 0,
+        material_count: 0,
+        program_count: 0,
+        program_session_count: 0,
+        program_participant_count: 0,
+        ai_smart_users: 0,
+        ai_smart_items: 0,
+        ai_equipment_users: 0,
+        ai_equipment_total: 0,
+        has_data: false,
+        is_completed: false,
+        manual_status: null
+      })))
+      return
+    }
     setLoading(true)
     try {
       const apiUrl = import.meta.env.VITE_API_URL || window.location.origin

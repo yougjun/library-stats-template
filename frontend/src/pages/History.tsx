@@ -33,6 +33,10 @@ export default function History() {
   }, [selectedMonth])
 
   const loadHistory = async () => {
+    if (window.location.hostname.includes('github.io')) {
+      setHistory([])
+      return
+    }
     setLoading(true)
     try {
       const apiUrl = import.meta.env.VITE_API_URL || window.location.origin
